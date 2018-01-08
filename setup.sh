@@ -6,6 +6,7 @@
 ##
 
 pod deintegrate
+rm -rf .git
 
 echo "What is the desired project name?"
 
@@ -16,3 +17,5 @@ find . -type f -iname "*" -exec sed -i "" "s/Template/$PROJECT_NAME/g" "{}" +;
 rm setup.sh
 
 pod install
+git init
+
