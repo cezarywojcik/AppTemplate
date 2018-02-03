@@ -21,6 +21,7 @@ class Settings {
     private unowned let app: App
     private var settingsStorage: [String: String] = [:]
     private let serialAccessQueue = DispatchQueue(label: "\(App.Constant.appName).Settings.serialAccessQueue")
+    private let semaphore = DispatchSemaphore(value: 1)
 
     // MARK: - initialization
 
@@ -32,28 +33,33 @@ class Settings {
     // MARK: - api
 
     func synchronize() {
-        self.serialAccessQueue.async { [weak self] in
-            self?.settingsStorage = [:]
+        self.semaphore.wait()
+        self.serialAccessQueue.async {
+            self.settingsStorage = [:]
         }
-        self.app.database.loadAll(ofType: Setting.self) { [weak self] (models, error) in
-            self?.serialAccessQueue.async { [weak self] in
+        self.app.database.loadAll(ofType: Setting.self) { (models, error) in
+            self.serialAccessQueue.async {
                 for model in models {
-                    self?.settingsStorage[model.key] = model.value
+                    self.settingsStorage[model.key] = model.value
                 }
             }
+            self.semaphore.signal()
         }
     }
 
     func value(for key: Key) -> String? {
+        self.semaphore.wait()
         return self.serialAccessQueue.sync {
-            self.settingsStorage[key.rawValue]
+            let value = self.settingsStorage[key.rawValue]
+            self.semaphore.signal()
+            return value
         }
     }
 
     func saveValue(_ value: String, for key: Key) {
         let setting = Setting(key: key.rawValue, value: value)
         self.app.database.saveOrInsertModel(setting) { [weak self] (error) in
-           if let error = error {
+            if let error = error {
                 self?.app.log.error("Error saving setting \(key)-\(value): \(error)")
                 return
             }
