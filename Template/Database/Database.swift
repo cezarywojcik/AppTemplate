@@ -23,9 +23,10 @@ class Database {
 
     // MARK: - error
 
-    enum Error: Swift.Error {
+    enum DatabaseError: Swift.Error {
 
         case modelMissingValueForPrimaryKey
+        case modelNotFound(type: String, id: String)
 
     }
 
@@ -73,7 +74,7 @@ class Database {
                 let valuesToSave = model.values
 
                 guard let modelID = valuesToSave[Model.primaryKey] as? String else {
-                    errorOrNil = Error.modelMissingValueForPrimaryKey
+                    errorOrNil = DatabaseError.modelMissingValueForPrimaryKey
                     return
                 }
 
@@ -133,13 +134,17 @@ class Database {
      */
     func load<Model: DatabaseModel>(ofType type: Model.Type,
                                     withIDList idList: [String],
-                                    handler: ((_ models: [Model], _ error: Swift.Error?) -> Void)?) {
+                                    handler: ((Result<[Model]>) -> Void)?) {
         self.serialDatabaseQueue.async {
             self.queue.inDatabase({ (database) in
                 var errorOrNil: Swift.Error? = nil
                 var models: [Model] = []
                 defer {
-                    handler?(models, errorOrNil)
+                    if let error = errorOrNil {
+                        handler?(.failure(error))
+                    } else {
+                        handler?(.success(models))
+                    }
                 }
                 let questionMarks = idList.map({ _ in "?" }).joined(separator: ",")
                 do {
@@ -165,9 +170,18 @@ class Database {
      */
     func load<Model: DatabaseModel>(ofType type: Model.Type,
                                     withID id: String,
-                                    handler: ((_ model: Model?, _ error: Swift.Error?) -> Void)?) {
-        self.load(ofType: type, withIDList: [id]) { (models, error) in
-            handler?(models.first, error)
+                                    handler: ((Result<Model>) -> Void)?) {
+        self.load(ofType: type, withIDList: [id]) { result in
+            switch result {
+            case .failure(let error):
+                handler?(.failure(error))
+            case .success(let models):
+                if let model = models.first {
+                    handler?(.success(model))
+                } else {
+                    handler?(.failure(DatabaseError.modelNotFound(type: "\(Model.self)", id: id)))
+                }
+            }
         }
     }
 
@@ -175,13 +189,17 @@ class Database {
      Asynchronously load all models of the given type from the database.
      */
     func loadAll<Model: DatabaseModel>(ofType type: Model.Type,
-                                       handler: ((_ models: [Model], _ error: Swift.Error?) -> Void)?) {
+                                       handler: ((Result<[Model]>) -> Void)?) {
         self.serialDatabaseQueue.async {
             self.queue.inDatabase({ (database) in
                 var errorOrNil: Swift.Error? = nil
                 var models: [Model] = []
                 defer {
-                    handler?(models, errorOrNil)
+                    if let error = errorOrNil {
+                        handler?(.failure(error))
+                    } else {
+                        handler?(.success(models))
+                    }
                 }
                 do {
                     let resultSet = try database.executeQuery("SELECT * FROM \(Model.tableName)", values: [])

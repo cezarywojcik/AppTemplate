@@ -37,13 +37,17 @@ class Settings {
         self.serialAccessQueue.async {
             self.settingsStorage = [:]
         }
-        self.app.database.loadAll(ofType: Setting.self) { (models, error) in
+        self.app.database.loadAll(ofType: Setting.self) { settingsResult in
+            guard case .success(let models) = settingsResult else {
+                self.semaphore.signal()
+                return
+            }
             self.serialAccessQueue.async {
                 for model in models {
                     self.settingsStorage[model.key] = model.value
                 }
+                self.semaphore.signal()
             }
-            self.semaphore.signal()
         }
     }
 
