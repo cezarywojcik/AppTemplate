@@ -23,6 +23,7 @@ class App {
     weak var rootViewController: RootViewController?
 
     let log = Log()
+    lazy var coordinator = Coordinator(app: self)
     lazy var database = Database(app: self)
     lazy var settings = Settings(app: self)
 
@@ -34,16 +35,6 @@ class App {
 
     func configure() {
         self.database.configure()
-        if !self.settings.boolean(for: .firstTimeSetupComplete) {
-            self.firstTimeSetup()
-        }
-    }
-
-    // MARK: - private helpers
-
-    private func firstTimeSetup() {
-        // on completion:
-        self.settings.saveBoolean(true, for: .firstTimeSetupComplete)
     }
 
 }
