@@ -10,7 +10,27 @@ import UIKit
 
 class RootViewController: UIViewController {
 
+    // MARK: - properties
+
     private unowned let app: App
+
+    var currentViewController: UIViewController? {
+        didSet {
+            if let oldViewController = oldValue {
+                oldViewController.view.removeFromSuperview()
+                oldViewController.willMove(toParentViewController: nil)
+                oldViewController.removeFromParentViewController()
+            }
+            guard let currentViewController = self.currentViewController else {
+                return
+            }
+            self.addChildViewController(currentViewController)
+            self.view.addSubview(currentViewController.view)
+            currentViewController.didMove(toParentViewController: self)
+        }
+    }
+
+    // MARK: - initialization
 
     init(app: App) {
         self.app = app
