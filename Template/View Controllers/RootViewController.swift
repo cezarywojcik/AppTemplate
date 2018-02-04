@@ -16,17 +16,26 @@ class RootViewController: UIViewController {
 
     var currentViewController: UIViewController? {
         didSet {
-            if let oldViewController = oldValue {
-                oldViewController.view.removeFromSuperview()
-                oldViewController.willMove(toParentViewController: nil)
-                oldViewController.removeFromParentViewController()
+            let changeViewController: () -> Void = { [weak self] in
+                if let oldViewController = oldValue {
+                    oldViewController.view.removeFromSuperview()
+                    oldViewController.willMove(toParentViewController: nil)
+                    oldViewController.removeFromParentViewController()
+                }
+                guard let currentViewController = self?.currentViewController else {
+                    return
+                }
+                self?.addChildViewController(currentViewController)
+                self?.view.addSubview(currentViewController.view)
+                currentViewController.didMove(toParentViewController: self)
             }
-            guard let currentViewController = self.currentViewController else {
-                return
+            if Thread.isMainThread {
+                changeViewController()
+            } else {
+                DispatchQueue.main.async {
+                    changeViewController()
+                }
             }
-            self.addChildViewController(currentViewController)
-            self.view.addSubview(currentViewController.view)
-            currentViewController.didMove(toParentViewController: self)
         }
     }
 

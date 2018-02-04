@@ -65,11 +65,27 @@ class Log {
         DDLogInfo("\(file)-\(function)-\(line): \(message)")
     }
 
-    func error(_ message: String,
+    func error(_ message: String = "",
+               error: Swift.Error? = nil,
                file: StaticString = #file,
                function: StaticString = #function,
                line: Int = #line) {
-        DDLogError("\(file)-\(function)-\(line): \(message)")
+        if let error = error {
+            DDLogError("\(file)-\(function)-\(line): \(message) - Error: \(error)")
+        } else {
+            DDLogError("\(file)-\(function)-\(line): \(message)")
+        }
+    }
+
+    func error(error: Error,
+               file: StaticString = #file,
+               function: StaticString = #function,
+               line: Int = #line) {
+        if let associatedError = error.associatedError {
+            DDLogError("\(error.file)-\(error.function)-\(error.line): \(error.message) - Error: \(associatedError)")
+        } else {
+            DDLogError("\(error.file)-\(error.function)-\(error.line): \(error.message)")
+        }
     }
 
 }
