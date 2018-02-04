@@ -23,7 +23,7 @@ class App {
     weak var rootViewController: RootViewController?
 
     let log = Log()
-    lazy var coordinator = Coordinator(app: self)
+    lazy var flow = FlowManager(app: self)
     lazy var database = Database(app: self)
     lazy var settings = Settings(app: self)
 

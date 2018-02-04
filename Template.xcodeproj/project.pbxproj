@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		028BE54F27A83C5DC812114B /* Pods_Template.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067AFCAD56B5B47C47E42A78 /* Pods_Template.framework */; };
 		5E6387661FB178BD00CEBE46 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6387651FB178BD00CEBE46 /* Database.swift */; };
-		5E923AB620268EEF0083F999 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AB520268EEF0083F999 /* Coordinator.swift */; };
+		5E923AB620268EEF0083F999 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AB520268EEF0083F999 /* FlowManager.swift */; };
 		5E923ABC2026984F0083F999 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923ABB2026984F0083F999 /* Result.swift */; };
 		5E923ABE2026985B0083F999 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923ABD2026985B0083F999 /* Error.swift */; };
+		5E923AC62026CB150083F999 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AC52026CB150083F999 /* Flow.swift */; };
 		5E9A89D920018B4C008F4B41 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A89D820018B4C008F4B41 /* Log.swift */; };
 		5E9A89DB20018C47008F4B41 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A89DA20018C47008F4B41 /* App.swift */; };
 		5E9A89DE20019562008F4B41 /* schema.sql in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A89DD20019562008F4B41 /* schema.sql */; };
@@ -29,9 +30,10 @@
 		368FE38FBEAD1C472DAA82A2 /* Pods-Template.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Template.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Template/Pods-Template.debug.xcconfig"; sourceTree = "<group>"; };
 		3CE78FEE05FBAC09FEBB8D79 /* Pods-Template.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Template.release.xcconfig"; path = "Pods/Target Support Files/Pods-Template/Pods-Template.release.xcconfig"; sourceTree = "<group>"; };
 		5E6387651FB178BD00CEBE46 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		5E923AB520268EEF0083F999 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		5E923AB520268EEF0083F999 /* FlowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
 		5E923ABB2026984F0083F999 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5E923ABD2026985B0083F999 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		5E923AC52026CB150083F999 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		5E9A89D820018B4C008F4B41 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5E9A89DA20018C47008F4B41 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5E9A89DD20019562008F4B41 /* schema.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.sql; sourceTree = "<group>"; };
@@ -77,13 +79,21 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		5E923AC42026CAFD0083F999 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				5E923AB520268EEF0083F999 /* FlowManager.swift */,
+				5E923AC52026CB150083F999 /* Flow.swift */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		5E9A89D720018B35008F4B41 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				5E9A89DA20018C47008F4B41 /* App.swift */,
 				5E9A89D820018B4C008F4B41 /* Log.swift */,
 				5EB1980C2001FA4500054F34 /* Settings.swift */,
-				5E923AB520268EEF0083F999 /* Coordinator.swift */,
 				5E923ABB2026984F0083F999 /* Result.swift */,
 				5E923ABD2026985B0083F999 /* Error.swift */,
 			);
@@ -114,6 +124,7 @@
 				5E9ED6991FAE4B44008CA561 /* App */,
 				5E6387641FB1789D00CEBE46 /* Database */,
 				5E9A89D720018B35008F4B41 /* Utilities */,
+				5E923AC42026CAFD0083F999 /* Flows */,
 				5E6387631FB16D5100CEBE46 /* View Controllers */,
 			);
 			path = Template;
@@ -299,8 +310,9 @@
 				5EB1980B2001F5C700054F34 /* Setting.swift in Sources */,
 				5E923ABC2026984F0083F999 /* Result.swift in Sources */,
 				5E9ED6881FAE4AF6008CA561 /* AppDelegate.swift in Sources */,
+				5E923AC62026CB150083F999 /* Flow.swift in Sources */,
 				5E6387661FB178BD00CEBE46 /* Database.swift in Sources */,
-				5E923AB620268EEF0083F999 /* Coordinator.swift in Sources */,
+				5E923AB620268EEF0083F999 /* FlowManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

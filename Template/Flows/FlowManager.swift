@@ -1,5 +1,5 @@
 //
-//  Coordinator.swift
+//  FlowManager.swift
 //  Template
 //
 //  Created by Cezary Wojcik on 2/3/18.
@@ -8,9 +8,14 @@
 
 import Foundation
 
-class Coordinator {
+class FlowManager {
 
     private unowned let app: App
+    private let queue: ProcedureQueue = {
+        let queue = ProcedureQueue()
+        queue.maxConcurrentOperationCount = 1
+        return queue
+    }()
 
     // MARK: - initialization
 

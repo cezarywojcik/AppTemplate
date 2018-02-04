@@ -25,13 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
 
         self.app.rootViewController = rootViewController
-        self.app.coordinator.appLaunch()
+        self.app.flow.appLaunch()
 
         return true
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        self.app.coordinator.appForegrounded()
+        self.app.flow.appForegrounded()
     }
 
 }
