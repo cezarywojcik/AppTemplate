@@ -13,6 +13,7 @@
 		5E923ABC2026984F0083F999 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923ABB2026984F0083F999 /* Result.swift */; };
 		5E923ABE2026985B0083F999 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923ABD2026985B0083F999 /* Error.swift */; };
 		5E923AC62026CB150083F999 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AC52026CB150083F999 /* Flow.swift */; };
+		5E923AD4202822FB0083F999 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AD3202822FB0083F999 /* Extensions.swift */; };
 		5E9A89D920018B4C008F4B41 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A89D820018B4C008F4B41 /* Log.swift */; };
 		5E9A89DB20018C47008F4B41 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A89DA20018C47008F4B41 /* App.swift */; };
 		5E9A89DE20019562008F4B41 /* schema.sql in Resources */ = {isa = PBXBuildFile; fileRef = 5E9A89DD20019562008F4B41 /* schema.sql */; };
@@ -34,6 +35,7 @@
 		5E923ABB2026984F0083F999 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5E923ABD2026985B0083F999 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		5E923AC52026CB150083F999 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		5E923AD3202822FB0083F999 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5E9A89D820018B4C008F4B41 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		5E9A89DA20018C47008F4B41 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5E9A89DD20019562008F4B41 /* schema.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = schema.sql; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				5EB1980C2001FA4500054F34 /* Settings.swift */,
 				5E923ABB2026984F0083F999 /* Result.swift */,
 				5E923ABD2026985B0083F999 /* Error.swift */,
+				5E923AD3202822FB0083F999 /* Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				5E9A89DB20018C47008F4B41 /* App.swift in Sources */,
 				5EB1980B2001F5C700054F34 /* Setting.swift in Sources */,
 				5E923ABC2026984F0083F999 /* Result.swift in Sources */,
+				5E923AD4202822FB0083F999 /* Extensions.swift in Sources */,
 				5E9ED6881FAE4AF6008CA561 /* AppDelegate.swift in Sources */,
 				5E923AC62026CB150083F999 /* Flow.swift in Sources */,
 				5E6387661FB178BD00CEBE46 /* Database.swift in Sources */,
