@@ -29,7 +29,7 @@ class RootViewController: UIViewController {
                 self?.view.addSubview(currentViewController.view)
                 currentViewController.didMove(toParentViewController: self)
             }
-            if Thread.isMainThread {
+            if Dispatch.isOnMainQueue {
                 changeViewController()
             } else {
                 DispatchQueue.main.async {

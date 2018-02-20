@@ -24,6 +24,7 @@
 		5E9ED6921FAE4AF6008CA561 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E9ED6901FAE4AF6008CA561 /* LaunchScreen.storyboard */; };
 		5EB1980B2001F5C700054F34 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB1980A2001F5C700054F34 /* Setting.swift */; };
 		5EB1980D2001FA4500054F34 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB1980C2001FA4500054F34 /* Settings.swift */; };
+		5EE185A6203BF25B007D6454 /* Dispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE185A5203BF25B007D6454 /* Dispatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		5E9ED6931FAE4AF6008CA561 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EB1980A2001F5C700054F34 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		5EB1980C2001FA4500054F34 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5EE185A5203BF25B007D6454 /* Dispatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				5E923ABB2026984F0083F999 /* Result.swift */,
 				5E923ABD2026985B0083F999 /* Error.swift */,
 				5E923AD3202822FB0083F999 /* Extensions.swift */,
+				5EE185A5203BF25B007D6454 /* Dispatch.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				5E923AC62026CB150083F999 /* Flow.swift in Sources */,
 				5E6387661FB178BD00CEBE46 /* Database.swift in Sources */,
 				5E923AB620268EEF0083F999 /* FlowManager.swift in Sources */,
+				5EE185A6203BF25B007D6454 /* Dispatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

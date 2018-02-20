@@ -58,6 +58,15 @@ class Log {
         assertionFailure(failureMessage)
     }
 
+    func assertIsMainQueue(file: StaticString = #file,
+                           function: StaticString = #function,
+                           line: Int = #line) {
+        if Dispatch.isOnMainQueue {
+            return
+        }
+        self.assertFailure("Expected to be running on main thread.", file: file, function: function, line: line)
+    }
+
     func info(_ message: String,
               file: StaticString = #file,
               function: StaticString = #function,
