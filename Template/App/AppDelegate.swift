@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let app = App()
 
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.app.configure()
 
         self.window = UIWindow()

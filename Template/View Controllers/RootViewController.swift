@@ -19,15 +19,15 @@ class RootViewController: UIViewController {
             let changeViewController: () -> Void = { [weak self] in
                 if let oldViewController = oldValue {
                     oldViewController.view.removeFromSuperview()
-                    oldViewController.willMove(toParentViewController: nil)
-                    oldViewController.removeFromParentViewController()
+                    oldViewController.willMove(toParent: nil)
+                    oldViewController.removeFromParent()
                 }
                 guard let currentViewController = self?.currentViewController else {
                     return
                 }
-                self?.addChildViewController(currentViewController)
+                self?.addChild(currentViewController)
                 self?.view.addSubview(currentViewController.view)
-                currentViewController.didMove(toParentViewController: self)
+                currentViewController.didMove(toParent: self)
             }
             if Dispatch.isOnMainQueue {
                 changeViewController()

@@ -43,7 +43,12 @@ class Database {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         let path = documentsURL?.appendingPathComponent(Constant.databaseFilename).absoluteString ?? ""
         self.app.log.debug("Opening database at path \"\(path)\"")
-        self.queue = FMDatabaseQueue(path: path)
+        if let queue = FMDatabaseQueue(path: path) {
+            self.queue = queue
+        } else {
+            self.queue = FMDatabaseQueue()
+            self.app.log.assertFailure("Failed to initialize database queue at path \(path)")
+        }
     }
 
     // MARK: - api

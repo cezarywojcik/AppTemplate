@@ -14,8 +14,8 @@ class Log {
     // MARK: - initialization
 
     init() {
-        DDLog.add(DDASLLogger.sharedInstance) // ASL = Apple System Logs
-        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
+        DDLog.add(DDOSLogger.sharedInstance)
+        let fileLogger: DDFileLogger = DDFileLogger()
         fileLogger.rollingFrequency = TimeInterval(60 * 60 * 24 * 7) // 7 days
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger)
