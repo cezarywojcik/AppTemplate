@@ -18,9 +18,7 @@ class App {
 
     }
 
-    // MARK: - properties
-
-    weak var rootViewController: RootViewController?
+// MARK: - properties
 
     let log = Log()
     lazy var flow = FlowManager(app: self)

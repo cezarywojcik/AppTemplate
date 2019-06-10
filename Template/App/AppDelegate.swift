@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,11 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.window = UIWindow()
         self.window?.backgroundColor = .white
-        let rootViewController = RootViewController(app: self.app)
+        let rootViewController = UIHostingController(rootView: RootView(app: app))
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
 
-        self.app.rootViewController = rootViewController
         self.app.flow.appLaunch()
 
         return true
