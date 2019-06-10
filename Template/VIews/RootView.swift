@@ -22,12 +22,6 @@ struct RootView: View {
     private unowned let app: App
 
     @State var contentViewType: ContentViewType = .home
-    private var viewForContentViewType: some View {
-        switch self.contentViewType {
-        case .home:
-            return HomeView(app: self.app)
-        }
-    }
 
     // MARK: - initialization
 
@@ -38,7 +32,10 @@ struct RootView: View {
     // MARK: - view
 
     var body: some View {
-        self.viewForContentViewType
+        switch self.contentViewType {
+        case .home:
+            return HomeView(app: self.app)
+        }
     }
 
 }
