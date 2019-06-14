@@ -18,7 +18,7 @@ class App {
 
     }
 
-// MARK: - properties
+    // MARK: - properties
 
     let log = Log()
     lazy var flow = FlowManager(app: self)

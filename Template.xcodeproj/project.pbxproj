@@ -12,7 +12,6 @@
 		5E65884B22AE053900058BCD /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65884A22AE053900058BCD /* RootView.swift */; };
 		5E65884D22AE0BD800058BCD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65884C22AE0BD800058BCD /* HomeView.swift */; };
 		5E923AB620268EEF0083F999 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AB520268EEF0083F999 /* FlowManager.swift */; };
-		5E923ABC2026984F0083F999 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923ABB2026984F0083F999 /* Result.swift */; };
 		5E923ABE2026985B0083F999 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923ABD2026985B0083F999 /* Error.swift */; };
 		5E923AC62026CB150083F999 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AC52026CB150083F999 /* Flow.swift */; };
 		5E923AD4202822FB0083F999 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AD3202822FB0083F999 /* Extensions.swift */; };
@@ -33,7 +32,6 @@
 		5E65884A22AE053900058BCD /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		5E65884C22AE0BD800058BCD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5E923AB520268EEF0083F999 /* FlowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
-		5E923ABB2026984F0083F999 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		5E923ABD2026985B0083F999 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		5E923AC52026CB150083F999 /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
 		5E923AD3202822FB0083F999 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 				5E9A89DA20018C47008F4B41 /* App.swift */,
 				5E9A89D820018B4C008F4B41 /* Log.swift */,
 				5EB1980C2001FA4500054F34 /* Settings.swift */,
-				5E923ABB2026984F0083F999 /* Result.swift */,
 				5E923ABD2026985B0083F999 /* Error.swift */,
 				5E923AD3202822FB0083F999 /* Extensions.swift */,
 				5EE185A5203BF25B007D6454 /* Dispatch.swift */,
@@ -305,7 +302,6 @@
 				5E9A89D920018B4C008F4B41 /* Log.swift in Sources */,
 				5E9A89DB20018C47008F4B41 /* App.swift in Sources */,
 				5EB1980B2001F5C700054F34 /* Setting.swift in Sources */,
-				5E923ABC2026984F0083F999 /* Result.swift in Sources */,
 				5E923AD4202822FB0083F999 /* Extensions.swift in Sources */,
 				5E9ED6881FAE4AF6008CA561 /* AppDelegate.swift in Sources */,
 				5E923AC62026CB150083F999 /* Flow.swift in Sources */,

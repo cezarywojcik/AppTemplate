@@ -139,7 +139,7 @@ class Database {
      */
     func load<Model: DatabaseModel>(ofType type: Model.Type,
                                     withIDList idList: [String],
-                                    handler: ((Result<[Model]>) -> Void)?) {
+                                    handler: ((Result<[Model], Swift.Error>) -> Void)?) {
         self.serialDatabaseQueue.async {
             self.queue.inDatabase({ (database) in
                 var errorOrNil: Swift.Error? = nil
@@ -175,7 +175,7 @@ class Database {
      */
     func load<Model: DatabaseModel>(ofType type: Model.Type,
                                     withID id: String,
-                                    handler: ((Result<Model>) -> Void)?) {
+                                    handler: ((Result<Model, Swift.Error>) -> Void)?) {
         self.load(ofType: type, withIDList: [id]) { result in
             switch result {
             case .failure(let error):
@@ -194,7 +194,7 @@ class Database {
      Asynchronously load all models of the given type from the database.
      */
     func loadAll<Model: DatabaseModel>(ofType type: Model.Type,
-                                       handler: ((Result<[Model]>) -> Void)?) {
+                                       handler: ((Result<[Model], Swift.Error>) -> Void)?) {
         self.serialDatabaseQueue.async {
             self.queue.inDatabase({ (database) in
                 var errorOrNil: Swift.Error? = nil
