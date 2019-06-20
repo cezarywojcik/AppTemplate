@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.app.configure()
 
         self.window = UIWindow()
-        self.window?.backgroundColor = .white
+        self.window?.backgroundColor = .black
         let rootViewController = UIHostingController(rootView: RootView(app: app))
         self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
