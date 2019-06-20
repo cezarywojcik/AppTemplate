@@ -25,9 +25,7 @@ struct ModalButton<Destination>: View where Destination: View {
 
     var body: some View {
         Button(action: {
-            withAnimation {
-                self.isPresenting = true
-            }
+            self.isPresenting = true
         }, label: {
             Text("press me")
         })
