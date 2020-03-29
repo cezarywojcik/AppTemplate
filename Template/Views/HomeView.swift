@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import SFSymbolsSafe
 
 struct ModalButton<Destination>: View where Destination: View {
 
@@ -15,13 +16,13 @@ struct ModalButton<Destination>: View where Destination: View {
 
     private let destination: Destination
 
-    private var presentation: Modal? {
-        self.isPresenting
-            ? Modal(self.destination, onDismiss: {
-                self.isPresenting = false
-            })
-            : nil
-    }
+//    private var presentation: Modal? {
+//        self.isPresenting
+//            ? Modal(self.destination, onDismiss: {
+//                self.isPresenting = false
+//            })
+//            : nil
+//    }
 
     var body: some View {
         Button(action: {
@@ -29,7 +30,9 @@ struct ModalButton<Destination>: View where Destination: View {
         }, label: {
             Text("press me")
         })
-        .presentation(self.presentation)
+        .sheet(isPresented: self.$isPresenting) {
+            self.destination
+        }
     }
 
     init(_ destination: Destination) {
@@ -54,7 +57,10 @@ struct HomeView: View {
 
     var body: some View {
         NavigationView {
-            ModalButton(Text("destination modal💤"))
+            ModalButton(HStack {
+                Image(symbol: .bubbleLeft)
+                Text("destination modal💤")
+            })
             List {
                 Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
             }

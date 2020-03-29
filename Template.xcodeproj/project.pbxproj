@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		5E6387661FB178BD00CEBE46 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6387651FB178BD00CEBE46 /* Database.swift */; };
 		5E65884B22AE053900058BCD /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65884A22AE053900058BCD /* RootView.swift */; };
 		5E65884D22AE0BD800058BCD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E65884C22AE0BD800058BCD /* HomeView.swift */; };
+		5E8EE2C122C12425006330D4 /* SFSymbolsSafe in Frameworks */ = {isa = PBXBuildFile; productRef = 5E8EE2C022C12425006330D4 /* SFSymbolsSafe */; };
 		5E923AB620268EEF0083F999 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AB520268EEF0083F999 /* FlowManager.swift */; };
 		5E923ABE2026985B0083F999 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923ABD2026985B0083F999 /* Error.swift */; };
 		5E923AC62026CB150083F999 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E923AC52026CB150083F999 /* Flow.swift */; };
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E8EE2C122C12425006330D4 /* SFSymbolsSafe in Frameworks */,
 				4D6137C4BE04AE54258DE83D /* Pods_Template.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,13 +66,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E6387631FB16D5100CEBE46 /* VIews */ = {
+		5E6387631FB16D5100CEBE46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				5E65884A22AE053900058BCD /* RootView.swift */,
 				5E65884C22AE0BD800058BCD /* HomeView.swift */,
 			);
-			path = VIews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5E6387641FB1789D00CEBE46 /* Database */ = {
@@ -131,7 +133,7 @@
 				5E6387641FB1789D00CEBE46 /* Database */,
 				5E9A89D720018B35008F4B41 /* Utilities */,
 				5E923AC42026CAFD0083F999 /* Flows */,
-				5E6387631FB16D5100CEBE46 /* VIews */,
+				5E6387631FB16D5100CEBE46 /* Views */,
 			);
 			path = Template;
 			sourceTree = "<group>";
@@ -190,6 +192,9 @@
 			dependencies = (
 			);
 			name = Template;
+			packageProductDependencies = (
+				5E8EE2C022C12425006330D4 /* SFSymbolsSafe */,
+			);
 			productName = Template;
 			productReference = 5E9ED6841FAE4AF6008CA561 /* Template.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +225,9 @@
 				Base,
 			);
 			mainGroup = 5E9ED67B1FAE4AF6008CA561;
+			packageReferences = (
+				5E8EE2BF22C12425006330D4 /* XCRemoteSwiftPackageReference "SFSymbolsSafe" */,
+			);
 			productRefGroup = 5E9ED6851FAE4AF6008CA561 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,19 +256,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Template/Pods-Template-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
-				"${BUILT_PRODUCTS_DIR}/ProcedureKit/ProcedureKit.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Template/Pods-Template-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProcedureKit.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Template/Pods-Template-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -433,7 +434,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -446,7 +448,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMZH6X9D3C;
 				INFOPLIST_FILE = "$(SRCROOT)/Template/App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = CW.Template;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -462,7 +467,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QMZH6X9D3C;
 				INFOPLIST_FILE = "$(SRCROOT)/Template/App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = CW.Template;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -492,6 +500,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5E8EE2BF22C12425006330D4 /* XCRemoteSwiftPackageReference "SFSymbolsSafe" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cezarywojcik/SFSymbolsSafe";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5E8EE2C022C12425006330D4 /* SFSymbolsSafe */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5E8EE2BF22C12425006330D4 /* XCRemoteSwiftPackageReference "SFSymbolsSafe" */;
+			productName = SFSymbolsSafe;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E9ED67C1FAE4AF6008CA561 /* Project object */;
 }
